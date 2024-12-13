@@ -1,21 +1,17 @@
 const mongodb = require('mongodb');
-const MongoCLient = mongodb.MongoClient;
+const MongoClient = mongodb.MongoClient;
 let database;
 async function connect() {
-    const client = await MongoCLient.connect('mongodb+srv://user1:@FF8ifBAftQ-b9f@latihan1.4vpdp.mongodb.net/?retryWrites=true&w=majority&appName=latihan1');
-    database = client.db('latihan1');
-
+    const client = await MongoClient.connect('mongodb+srv://user1:Husain123@latihan1.4vpdp.mongodb.net/?retryWrites=true&w=majority&appName=latihan1');
+    database = client.db('blog');
 }
 
 function getDb() {
     if (!database) {
-        throw {
-            message: 'database conection not estabilish'
-        }
+        throw { message: 'database cnonection not establish' }
     }
     return database;
 }
-
 module.exports = {
     connectToDb: connect,
     getDb: getDb
